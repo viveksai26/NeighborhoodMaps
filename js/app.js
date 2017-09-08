@@ -72,7 +72,7 @@ function populateInfoWindow(marker, infowindow) {
             location = venue.hasOwnProperty('location') ? venue.location : '';
             if (location.hasOwnProperty('address')) {
                 var address = location.address || '';
-            }
+
 
             infowindow.marker = marker;
             infowindow.setContent('<div>' + marker.title + '</div><p>' + address + '</p>');
@@ -80,7 +80,7 @@ function populateInfoWindow(marker, infowindow) {
             infowindow.addListener('closeclick', function() {
                 infowindow.marker = null;
             });
-
+        }
         }).fail(function(e) {
             infowindow.setContent("data unavaliable");
             self.showErrorMessage(true);
@@ -112,6 +112,7 @@ function initMap() {
         var title = vm.filteredLocations()[i].title;
         console.log(vm.filteredLocations()[i].address);
         // Create a marker per location, and put into markers array.
+
         var marker = new google.maps.Marker({
             position: position,
             title: title,
