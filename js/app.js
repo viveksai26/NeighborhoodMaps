@@ -34,13 +34,15 @@ var ViewModel = function() {
             }
         }
     });
-
     self.showInfo = function(locations) {
         google.maps.event.trigger(locations.marker, 'click');
 
     };
 
+
 };
+
+
 
 
 function populateInfoWindow(marker, infowindow) {
@@ -70,8 +72,8 @@ function populateInfoWindow(marker, infowindow) {
         }).done(function(data) {
             venue = data.response.hasOwnProperty("venues") ? data.response.venues[0] : '';
             location = venue.hasOwnProperty('location') ? venue.location : '';
-            if (location.hasOwnProperty('address')) {
-                var address = location.address || '';
+            // if (location.hasOwnProperty('address')) {
+            var address = location.address || '';
 
 
             infowindow.marker = marker;
@@ -80,7 +82,7 @@ function populateInfoWindow(marker, infowindow) {
             infowindow.addListener('closeclick', function() {
                 infowindow.marker = null;
             });
-        }
+
         }).fail(function(e) {
             infowindow.setContent("data unavaliable");
             self.showErrorMessage(true);
@@ -106,11 +108,12 @@ function initMap() {
 
     var largeInfowindow = new google.maps.InfoWindow();
     // The following group uses the location array to create an array of markers on initialize.
-    for (var i = 0; i < vm.filteredLocations().length; i++) {
+    var x = vm.filteredLocations();
+    x.forEach(function(x, index) {
         // Get the position from the location array.
-        var position = vm.filteredLocations()[i].location;
-        var title = vm.filteredLocations()[i].title;
-        console.log(vm.filteredLocations()[i].address);
+        var position = x.location;
+        var title = x.title;
+        console.log(x.address);
         // Create a marker per location, and put into markers array.
 
         var marker = new google.maps.Marker({
@@ -118,10 +121,10 @@ function initMap() {
             title: title,
             animation: google.maps.Animation.DROP,
             icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
-            id: i,
+            // id: i,
             map: map
         });
-        vm.filteredLocations()[i].marker = marker;
+        x.marker = marker;
         marker.addListener('click', function() {
             //Add functionaility to animate markers
             var self = this;
@@ -133,7 +136,7 @@ function initMap() {
             }, 1400);
             populateInfoWindow(this, largeInfowindow);
         });
-    }
+    });
 }
 
 
