@@ -157,7 +157,7 @@ function geoloc() {
             }
         });
     }
-};
+}
 
 var locations = [{
         title: 'charminar',
