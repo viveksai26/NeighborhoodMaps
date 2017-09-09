@@ -62,6 +62,7 @@ line:last-child {
     .options-box {
     display: flex;
     flex-wrap: wrap;
+    overflow: scroll;
     }
     .li {
         text-align: left;
