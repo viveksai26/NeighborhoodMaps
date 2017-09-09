@@ -140,7 +140,7 @@ function initMap() {
 }
 
 
-document.getElementById('searchButton').addEventListener('click', function search() {
+function geoloc() {
     var geocoder = new google.maps.Geocoder();
     var address = vm.query();
     if (address == " ") {
@@ -157,7 +157,7 @@ document.getElementById('searchButton').addEventListener('click', function searc
             }
         });
     }
-});
+};
 
 var locations = [{
         title: 'charminar',

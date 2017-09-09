@@ -18,8 +18,8 @@
             <div class="error" data-bind="visible: showErrorMessage">
                 <h4>Foursquare data is not available..</h4>
             </div>
-            <input type="search" id="searchBox" placeholder="search any place" data-bind="textInput: query">
-            <input type="button" value="search places" id="searchButton">
+            <input type="search" id="searchBox" placeholder="search" data-bind="textInput: query">
+            <input type="button" data-bind = "click: geoloc" value="search places" id="searchButton">
             <div>
                 <div class="list">
                     <ul data-bind="foreach: filteredLocations">
@@ -27,7 +27,7 @@
                     </ul>
                 </div>
             </div>
-            </nav>
+        </nav>
     </div>
     <div id="map"></div>
     <script src="js/knockout-3.4.0.js"></script>
