@@ -85,7 +85,8 @@ function populateInfoWindow(marker, infowindow) {
 
         }).fail(function(e) {
             infowindow.setContent("data unavaliable");
-            self.showErrorMessage(true);
+            vm.showErrorMessage(true);
+            alert("foursquare data not avaliable");
         });
 
 
