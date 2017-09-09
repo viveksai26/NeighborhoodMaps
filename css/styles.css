@@ -61,9 +61,10 @@ line:last-child {
 }
 @media screen and (max-width: 1000px) {
     .options-box {
-        display: none;
+        width: 25%;
     }
     #map {
-        left: 0px;
+        left: 25%;
     }
+
 }

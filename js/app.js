@@ -142,7 +142,7 @@ function initMap() {
 
 document.getElementById('searchButton').addEventListener('click', function search() {
     var geocoder = new google.maps.Geocoder();
-    var address = document.getElementById('searchBox').value;
+    var address = vm.query();
     if (address == " ") {
         console.log("Please enter an address!");
     } else {
